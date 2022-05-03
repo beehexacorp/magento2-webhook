@@ -1,0 +1,21 @@
+{
+  "name": "beehexa/module-webhook",
+  "version": "1.0.0",
+  "description": "Beehexa webhook module.",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "beehexa/module-base": "1.0.*"
+  },
+  "license": [
+    "GNU General Public License (GPL)"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Beehexa\\Webhook\\": ""
+    }
+  }
+}

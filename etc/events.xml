@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2022 Beehexa All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+<!-- Product Entity -->
+    <event name="catalog_product_save_after">
+        <observer name="beehexa_webhook_catalog_product_save_after"/>
+    </event>
+<!-- Product Entity -->
+
+<!-- Category Entity -->
+<!-- Category Entity -->
+
+<!-- Customer Entity -->
+<!-- Customer Entity -->
+
+<!-- Order Entity -->
+<!-- Order Entity -->
+
+<!-- Invoice Entity -->
+<!-- Invoice Entity -->
+
+<!-- Shipment Entity -->
+<!-- Shipment Entity -->
+
+<!-- Creditmemo Entity -->
+<!-- Creditmemo Entity -->
+
+<!-- RMA Entity -->
+<!-- RMA Entity -->
+</config>
