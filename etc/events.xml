@@ -3,31 +3,64 @@
   ~ Copyright © 2022 Beehexa All rights reserved.
   ~ See COPYING.txt for license details.
   -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-<!-- Product Entity -->
-    <event name="catalog_product_save_after">
-        <observer name="beehexa_webhook_catalog_product_save_after"/>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!-- Product Entity -->
+    <event name="catalog_product_save_commit_after">
+        <observer name="beehexa_webhook_catalog_product_save_after" instance="ObserverCatalogProductUpdate"/>
     </event>
-<!-- Product Entity -->
 
-<!-- Category Entity -->
-<!-- Category Entity -->
+    <event name="catalog_product_delete_after_done">
+        <observer name="beehexa_webhook_catalog_product_delete_after" instance="ObserverCatalogProductDelete"/>
+    </event>
+    <!-- Product Entity -->
 
-<!-- Customer Entity -->
-<!-- Customer Entity -->
+    <!-- Category Entity -->
+    <event name="catalog_category_save_commit_after">
+        <observer name="beehexa_webhook_catalog_category_save_after" instance="ObserverCatalogCategoryUpdate"/>
+    </event>
+    <event name="catalog_category_delete_after_done">
+        <observer name="beehexa_webhook_catalog_category_delete_after" instance="ObserverCatalogCategoryDelete"/>
+    </event>
+    <!-- Category Entity -->
 
-<!-- Order Entity -->
-<!-- Order Entity -->
+    <!-- Customer Entity -->
+    <event name="customer_save_before">
+        <observer name="beehexa_webhook_customer_save_before" instance="ObserverCustomerEntitySaveBefore"/>
+    </event>
+    <event name="customer_save_commit_after">
+        <observer name="beehexa_webhook_customer_save_commit_after" instance="ObserverCustomerEntityUpdate"/>
+    </event>
+    <event name="customer_delete_commit_after">
+        <observer name="beehexa_webhook_customer_delete_after_done" instance="ObserverCustomerEntityDelete"/>
+    </event>
+    <!-- Customer Entity -->
 
-<!-- Invoice Entity -->
-<!-- Invoice Entity -->
+    <!-- Order Entity -->
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="beehexa_webhook_sales_model_service_quote_submit_success"
+                  instance="Beehexa\Webhook\Observer\Order\SubmitSuccess"/>
+    </event>
+    <event name="sales_order_save_before">
+        <observer name="beehexa_webhook_sales_order_save_before" instance="ObserverOrderEntitySaveBefore"/>
+    </event>
+    <event name="sales_order_save_commit_after">
+        <observer name="beehexa_webhook_sales_order_save_after" instance="Beehexa\Webhook\Observer\Order\Update"/>
+    </event>
+    <!-- Order Entity -->
 
-<!-- Shipment Entity -->
-<!-- Shipment Entity -->
+    <!-- Invoice Entity -->
+    <event name="invoice_save_commit_after">
+        <observer name="beehexa_webhook_invoice_save_commit_after" instance="ObserverInvoiceEntityUpdate"/>
+    </event>
+    <!-- Invoice Entity -->
 
-<!-- Creditmemo Entity -->
-<!-- Creditmemo Entity -->
+    <!-- Shipment Entity -->
+    <!-- Shipment Entity -->
 
-<!-- RMA Entity -->
-<!-- RMA Entity -->
+    <!-- Creditmemo Entity -->
+    <!-- Creditmemo Entity -->
+
+    <!-- RMA Entity -->
+    <!-- RMA Entity -->
 </config>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2022 Beehexa All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <beehexa>
+            <webhook>
+                <enable>0</enable>
+                <endpoint_provider><![CDATA[hexasync]]></endpoint_provider>
+                <prod_endpoint><![CDATA[]]></prod_endpoint>
+                <test_endpoint><![CDATA[]]></test_endpoint>
+            </webhook>
+        </beehexa>
+    </default>
+</config>

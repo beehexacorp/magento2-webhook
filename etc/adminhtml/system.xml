@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2022 Beehexa All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="beehexa">
+            <group id="webhook" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Webhook Integration</label>
+                <field id="enable" translate="label" type="select" sortOrder="0" showInDefault="1">
+                    <label><![CDATA[Enable]]></label>
+                    <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="is_production" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       canRestore="1">
+                    <label><![CDATA[Is Production Store]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="endpoint_provider" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" canRestore="1">
+                    <label><![CDATA[Provider]]></label>
+                    <source_model>\Beehexa\Webhook\Model\Config\Source\HookProvider</source_model>
+                </field>
+                <field id="prod_endpoint" translate="label" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" canRestore="1">
+                    <label><![CDATA[Production Endpoint]]></label>
+                </field>
+                <field id="test_endpoint" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" canRestore="1">
+                    <label><![CDATA[Sandbox Endpoint]]></label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
