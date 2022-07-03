@@ -11,7 +11,9 @@ use Magento\Framework\Event\Observer;
 
 class Update extends DefaultUpdate
 {
-
+    /**
+     * @inheritDoc
+     */
     public function execute(Observer $observer)
     {
         if (!($this->isEntityNew($this->getEntityModel($observer)))) {

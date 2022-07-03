@@ -10,8 +10,9 @@ use Magento\Framework\Option\ArrayInterface;
 
 class HookProvider implements ArrayInterface
 {
-    const SLACK_PROVIDER_NAME    = 'slack';
-    const HEXASYNC_PROVIDER_NAME = 'hexasync';
+    public const SLACK_PROVIDER_NAME    = 'slack';
+    public const HEXASYNC_PROVIDER_NAME = 'hexasync';
+    public const DEFAULT_PROVIDER_NAME  = 'default';
 
     /**
      * Options getter
@@ -21,6 +22,7 @@ class HookProvider implements ArrayInterface
     public function toOptionArray()
     {
         return [
+            ['value' => self::DEFAULT_PROVIDER_NAME, 'label' => __('Default')],
             ['value' => self::HEXASYNC_PROVIDER_NAME, 'label' => __('HexaSync')],
             ['value' => self::SLACK_PROVIDER_NAME, 'label' => __('Slack')]
         ];
@@ -33,7 +35,9 @@ class HookProvider implements ArrayInterface
      */
     public function toArray()
     {
-        return [self::HEXASYNC_PROVIDER_NAME => __('HexaSync'), self::SLACK_PROVIDER_NAME => __('Slack')];
+        return [
+            self::DEFAULT_PROVIDER_NAME  => __('Default'),
+            self::HEXASYNC_PROVIDER_NAME => __('HexaSync'),
+            self::SLACK_PROVIDER_NAME    => __('Slack')];
     }
-
 }

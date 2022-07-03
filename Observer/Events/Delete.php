@@ -9,7 +9,7 @@ namespace Beehexa\Webhook\Observer\Events;
 class Delete extends DefaultEntity
 {
     /**
-     * @inheirtDoc
+     * @inheritDoc
      */
     public function createBuilder($entity)
     {

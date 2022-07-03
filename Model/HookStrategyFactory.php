@@ -36,13 +36,13 @@ class HookStrategyFactory
     /**
      * Create class instance with specified parameters
      *
-     * @param       $provider
+     * @param string $provider
      * @param array $data
      * @return HookStrategyInterface
      */
-    public function create($provider, array $data = [])
+    public function create(string $provider, array $data = [])
     {
-        $_instanceName = DefaultChannel::class;
+
         switch ($provider) {
             case HookProvider::SLACK_PROVIDER_NAME:
                 $_instanceName = SlackChannel::class;
@@ -51,6 +51,8 @@ class HookStrategyFactory
                 $_instanceName = Beehexa::class;
                 break;
             default:
+                $_instanceName = DefaultChannel::class;
+                break;
         }
 
         return $this->_objectManager->create($_instanceName, $data);

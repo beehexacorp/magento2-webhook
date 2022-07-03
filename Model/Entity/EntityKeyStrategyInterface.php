@@ -12,6 +12,8 @@ interface EntityKeyStrategyInterface
 {
 
     /**
+     * Getting key for entity
+     *
      * @param AbstractModel $entity
      * @return string
      */

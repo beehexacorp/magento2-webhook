@@ -36,10 +36,14 @@ abstract class AbstractObserver implements ObserverInterface, MessageBuilderInte
      */
     protected $logger;
 
+    /**
+     * @var EntityManagement
+     */
     protected $entityManagement;
 
     /**
-     * @param Context $context
+     * @param Context          $context
+     * @param EntityManagement $entityManagement
      */
     public function __construct(
         Context          $context,
@@ -52,19 +56,21 @@ abstract class AbstractObserver implements ObserverInterface, MessageBuilderInte
     }
 
     /**
+     * Getter for entity field name
+     *
      * @return string
      */
-    public abstract function getEntityFieldName();
+    abstract public function getEntityFieldName();
 
     /**
+     * Getting entity name
+     *
      * @return string
      */
-    public abstract function getEntityName();
+    abstract public function getEntityName();
 
     /**
-     * @param Observer $observer
-     * @return void
-     * @throws \Exception
+     * @inheritDoc
      */
     public function execute(Observer $observer)
     {
@@ -87,23 +93,27 @@ abstract class AbstractObserver implements ObserverInterface, MessageBuilderInte
     }
 
     /**
+     * Getting entity model from observer
+     *
      * @param Observer $observer
      * @return AbstractModel|null
-     * @throws \Exception
+     * @throws LocalizedException
      */
     public function getEntityModel(Observer $observer)
     {
         $entity = $observer->getEvent()->getData($this->getEntityFieldName());
-        if(null === $entity){
+        if (null === $entity) {
             throw new LocalizedException(__("Can not load entity model from observer"));
         }
         return $entity;
     }
 
     /**
+     * Publishing entity
+     *
      * @param AbstractModel $entity
      * @return bool
-     * @throws \Exception
+     * @throws LocalizedException
      */
     public function push($entity)
     {
@@ -112,9 +122,7 @@ abstract class AbstractObserver implements ObserverInterface, MessageBuilderInte
     }
 
     /**
-     * @param AbstractModel $entity
-     * @return MessageBuilder
-     * @throws \Exception
+     * @inheritDoc
      */
     public function createBuilder($entity)
     {
@@ -125,5 +133,4 @@ abstract class AbstractObserver implements ObserverInterface, MessageBuilderInte
         $messageBuilder->addField('entity_id', $entity->getId());
         return $messageBuilder;
     }
-
 }

@@ -9,8 +9,7 @@ namespace Beehexa\Webhook\Model\Entity;
 class OrderKeyStrategy implements EntityKeyStrategyInterface
 {
     /**
-     * @param \Magento\Sales\Model\Order $entity
-     * @return string
+     * @inheritDoc
      */
     public function getKey($entity)
     {

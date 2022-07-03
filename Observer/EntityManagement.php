@@ -77,6 +77,8 @@ class EntityManagement
     }
 
     /**
+     * Get entity strategy
+     *
      * @param string $entityName
      * @return EntityKeyStrategyInterface
      * @throws LocalizedException
@@ -95,6 +97,8 @@ class EntityManagement
     }
 
     /**
+     * Checking if is new entity
+     *
      * @param string        $entityName
      * @param AbstractModel $entity
      * @return bool
@@ -114,6 +118,8 @@ class EntityManagement
     }
 
     /**
+     * Registering an entity
+     *
      * @param string        $entityName
      * @param AbstractModel $entity
      * @return void
@@ -136,8 +142,10 @@ class EntityManagement
     }
 
     /**
+     * Getting/Creating hook content
+     *
      * @return HookContext
-     * @throws \Exception
+     * @throws LocalizedException
      */
     public function getHookContext()
     {
@@ -153,15 +161,17 @@ class EntityManagement
                 );
                 $this->hookContext = new HookContext($hookStrategy);
             } else {
-                throw new \Exception(__("Please config endpoint and hook service provider"));
+                throw new LocalizedException(__("Please config endpoint and hook service provider"));
             }
         }
         return $this->hookContext;
     }
 
     /**
+     * Check if the entity is published
+     *
      * @param string $entityName
-     * @param        $entity
+     * @param AbstractModel $entity
      * @return bool
      * @throws LocalizedException
      */
@@ -185,7 +195,7 @@ class EntityManagement
      * @param AbstractModel           $entity
      * @param MessageBuilderInterface $builder
      * @return bool
-     * @throws \Exception
+     * @throws LocalizedException
      */
     public function push($entityName, $entity, MessageBuilderInterface $builder)
     {

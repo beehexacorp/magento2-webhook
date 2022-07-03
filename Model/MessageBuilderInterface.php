@@ -12,6 +12,8 @@ use Magento\Framework\Model\AbstractModel;
 interface MessageBuilderInterface
 {
     /**
+     * Creating a builder
+     *
      * @param AbstractModel $entity
      * @return MessageBuilder
      */

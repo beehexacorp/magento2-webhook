@@ -11,6 +11,8 @@ use Beehexa\Base\Helper\Data;
 class HookHelper extends Data
 {
     /**
+     * Is webhook enabled
+     *
      * @return boolean
      */
     public function isEnable()
@@ -19,6 +21,8 @@ class HookHelper extends Data
     }
 
     /**
+     * Getting endpoint provider
+     *
      * @return string
      */
     public function getEndpointProvider()
@@ -27,14 +31,12 @@ class HookHelper extends Data
     }
 
     /**
+     * Getting endpoint URL
+     *
      * @return string
      */
     public function getEndpoint()
     {
-        $serviceEndpoint = $this->getConfigValue('webhook/test_endpoint');
-        if ($this->getConfigFlag('webhook/is_production')) {
-            $serviceEndpoint = $this->getConfigValue('webhook/prod_endpoint');
-        }
-        return $serviceEndpoint;
+        return $this->getConfigValue('webhook/hook_endpoint');
     }
 }

@@ -34,8 +34,9 @@ class Context
 
     /**
      * @param HelperData      $helperData
-     * @param LoggerInterface $logger
+     * @param MessageBuilder  $messageBuilder
      * @param WebhookRegistry $webhookRegistry
+     * @param LoggerInterface $logger
      */
     public function __construct(
         HelperData      $helperData,
@@ -50,6 +51,8 @@ class Context
     }
 
     /**
+     * Getter for helper
+     *
      * @return HelperData
      */
     public function getHelperData(): HelperData
@@ -58,6 +61,8 @@ class Context
     }
 
     /**
+     * Getter for Logger
+     *
      * @return LoggerInterface
      */
     public function getLogger(): LoggerInterface
@@ -66,6 +71,8 @@ class Context
     }
 
     /**
+     * Getter for webhook
+     *
      * @return WebhookRegistry
      */
     public function getWebhookRegistry(): WebhookRegistry
@@ -74,11 +81,12 @@ class Context
     }
 
     /**
+     * Getter for message builder
+     *
      * @return MessageBuilder
      */
     public function getMessageBuilder(): MessageBuilder
     {
         return $this->messageBuilder;
     }
-
 }

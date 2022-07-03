@@ -34,9 +34,7 @@ class EAVBeforeSaveEntity implements ObserverInterface
     }
 
     /**
-     * @param Observer $observer
-     * @return void
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @inheritDoc
      */
     public function execute(Observer $observer)
     {
@@ -51,6 +49,8 @@ class EAVBeforeSaveEntity implements ObserverInterface
     }
 
     /**
+     * Getting entity from observer
+     *
      * @param Observer $observer
      * @return array|mixed|null
      */

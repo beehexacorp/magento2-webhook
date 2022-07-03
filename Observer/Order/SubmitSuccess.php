@@ -14,9 +14,7 @@ class SubmitSuccess extends Update
 {
 
     /**
-     * @param Observer $observer
-     * @return void
-     * @throws Exception
+     * @inheritDoc
      */
     public function execute(Observer $observer)
     {

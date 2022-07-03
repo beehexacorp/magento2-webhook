@@ -10,6 +10,7 @@ use Beehexa\Webhook\Observer\AbstractObserver;
 use Beehexa\Webhook\Observer\Context;
 use Beehexa\Webhook\Observer\EntityManagement;
 use Exception;
+use Magento\Framework\Model\AbstractModel;
 
 class DefaultEntity extends AbstractObserver
 {
@@ -40,14 +41,20 @@ class DefaultEntity extends AbstractObserver
         parent::__construct($context, $entityManagement);
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getEntityName()
     {
         if (!$this->entityName) {
-            throw new Exception(__("Invalid Entity Name"));
+            throw new \LogicException(__("Invalid Entity Name"));
         }
         return $this->entityName;
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getEntityFieldName()
     {
         if (!$this->entityKeyName) {
@@ -56,6 +63,13 @@ class DefaultEntity extends AbstractObserver
         return $this->entityKeyName;
     }
 
+    /**
+     * Validate is object new
+     *
+     * @param AbstractModel $entity
+     * @return bool
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function isEntityNew($entity)
     {
         return $this->entityManagement->isObjectNew($this->entityName, $entity);

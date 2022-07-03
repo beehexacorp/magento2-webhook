@@ -1,6 +1,6 @@
 {
     "name": "beehexa/module-webhook",
-    "version": "1.0.0",
+    "version": "24.0.1",
     "description": "Beehexa webhook module.",
     "type": "magento2-module",
     "require": {
