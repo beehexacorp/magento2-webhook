@@ -85,13 +85,12 @@ class EntityManagement
      */
     protected function getStrategy(string $entityName): ?EntityKeyStrategyInterface
     {
+        $strategy = $this->newEntityStrategies['default'];
         if (isset($this->newEntityStrategies[$entityName])) {
             $strategy = $this->newEntityStrategies[$entityName];
-            if (!($strategy instanceof EntityKeyStrategyInterface)) {
-                throw new LocalizedException(__("New Entity Strategy must instance of NewEntityStrategyInterface"));
-            }
-        } else {
-            throw new LocalizedException(__("Undefined New Entity Strategy: %s", $entityName));
+        }
+        if (!($strategy instanceof EntityKeyStrategyInterface)) {
+            throw new LocalizedException(__("Entity Strategy must instance of NewEntityStrategyInterface: %s", $strategy));
         }
         return $strategy;
     }

@@ -14,6 +14,7 @@
                 <item name="customer" xsi:type="object">Beehexa\Webhook\Model\Entity\CustomerKeyStrategy</item>
                 <item name="product" xsi:type="object">Beehexa\Webhook\Model\Entity\ProductKeyStrategy</item>
                 <item name="order" xsi:type="object">Beehexa\Webhook\Model\Entity\OrderKeyStrategy</item>
+                <item name="default" xsi:type="object">Beehexa\Webhook\Model\Entity\DefaultKeyStrategy</item>
             </argument>
         </arguments>
     </type>
