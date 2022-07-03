@@ -39,4 +39,14 @@ class HookHelper extends Data
     {
         return $this->getConfigValue('webhook/hook_endpoint');
     }
+
+    /**
+     * Getting endpoint api token
+     *
+     * @return string
+     */
+    public function getApiToken()
+    {
+        return $this->getConfigValue('webhook/api_token');
+    }
 }

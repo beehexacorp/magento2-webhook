@@ -16,13 +16,18 @@
                     <source_model>\Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <field id="endpoint_provider" translate="label" type="select" sortOrder="20" showInDefault="1"
-                       showInWebsite="1" canRestore="1">
+                       showInWebsite="1" >
                     <label><![CDATA[Provider]]></label>
                     <source_model>\Beehexa\Webhook\Model\Config\Source\HookProvider</source_model>
                 </field>
                 <field id="hook_endpoint" translate="label" type="text" sortOrder="30" showInDefault="1"
-                       showInWebsite="1" canRestore="1">
+                       showInWebsite="1" >
                     <label><![CDATA[Hook Endpoint]]></label>
+                </field>
+                <field id="api_token" translate="label" type="obscure" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" >
+                    <label><![CDATA[API Token]]></label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                 </field>
             </group>
         </section>

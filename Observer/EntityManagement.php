@@ -153,10 +153,12 @@ class EntityManagement
             $serviceEndpoint = $this->helperData->getEndpoint();
             $endpointProvider = $this->helperData->getEndpointProvider();
             if ($endpointProvider && $serviceEndpoint) {
+                $apiToken = $this->helperData->getApiToken();
                 $hookStrategy = $this->hookStrategyFactory->create(
                     $endpointProvider,
                     [
-                        'serviceEndpoint' => $serviceEndpoint
+                        'serviceEndpoint' => $serviceEndpoint,
+                        'apiToken' => $apiToken
                     ]
                 );
                 $this->hookContext = new HookContext($hookStrategy);
