@@ -1,17 +1,25 @@
 {
-    "name": "beehexa/module-webhook",
+    "name": "beehexacorp/module-webhook",
     "version": "24.0.1",
     "description": "Beehexa webhook module.",
     "type": "magento2-module",
     "require": {
         "php": "~7.0 || ~8.0 || ~8.1",
-        "magento/framework": "*",
+        "magento/framework": ">=102",
         "beehexa/webhook-php": "*",
-        "beehexa/module-base": "1.0.*"
+        "beehexa/beehexa-base": "~v2.0"
     },
     "license": [
         "OSL-3.0",
         "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Beehexa",
+            "email": "support@beehexa.com",
+            "homepage": "https://www.beehexa.com/",
+            "role": "Magento 2 plugin contributor"
+        }
     ],
     "autoload": {
         "files": [
