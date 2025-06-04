@@ -7,7 +7,7 @@
         "php": "~7.0 || ~8.0 || ~8.1",
         "magento/framework": ">=102",
         "beehexa/webhook-php": "*",
-        "beehexa/beehexa-base": "~v2.0"
+        "beehexacorp/magento-base": "~v2.0"
     },
     "license": [
         "OSL-3.0",
