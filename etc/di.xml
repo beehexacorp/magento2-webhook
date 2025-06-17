@@ -97,4 +97,16 @@
             <argument name="entityName" xsi:type="string">invoice</argument>
         </arguments>
     </virtualType>
+
+    <virtualType name="ObserverCreditmemoEntityUpdate" type="Beehexa\Webhook\Observer\Events\Update" shared="false">
+        <arguments>
+            <argument name="entityName" xsi:type="string">creditmemo</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ObserverCreditmemoEntitySaveBefore" type="Beehexa\Webhook\Observer\EAVBeforeSaveEntity">
+        <arguments>
+            <argument name="entityName" xsi:type="string">creditmemo</argument>
+        </arguments>
+    </virtualType>
 </config>

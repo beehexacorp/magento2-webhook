@@ -59,6 +59,12 @@
     <!-- Shipment Entity -->
 
     <!-- Creditmemo Entity -->
+    <event name="sales_order_creditmemo_save_before">
+        <observer name="beehexa_webhook_sales_order_creditmemo_save_before" instance="ObserverCreditmemoEntitySaveBefore"/>
+    </event>
+    <event name="sales_order_creditmemo_save_commit_after">
+        <observer name="beehexa_webhook_sales_order_creditmemo_save_commit_after" instance="ObserverCreditmemoEntityUpdate"/>
+    </event>
     <!-- Creditmemo Entity -->
 
     <!-- RMA Entity -->
