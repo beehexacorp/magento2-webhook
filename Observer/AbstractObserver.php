@@ -131,6 +131,7 @@ abstract class AbstractObserver implements ObserverInterface, MessageBuilderInte
         $messageBuilder->setEntityId($entity->getId());
         $messageBuilder->addField('entity_type', $this->getEntityName());
         $messageBuilder->addField('entity_id', $entity->getId());
+        $messageBuilder->addField('updated_at', $entity->getData('updated_at') ?? null);
         return $messageBuilder;
     }
 }
